@@ -1,6 +1,19 @@
-#!/usr/bin/env bash
+#!/#!/usr/bin/env sh
+# POSIX compliant, both bash & zsh compatible
 
-cd "$(dirname "${BASH_SOURCE}")";
+#cd "$(dirname "${BASH_SOURCE}")";
+# cd into directory of script
+if [ -n "${BASH_SOURCE}" ]; then
+  # Bash
+  cd "$(dirname "${BASH_SOURCE[0]}")" || exit
+elif [ -n "${ZSH_VERSION}" ]; then
+  # Zsh
+  cd "$(dirname "${(%):-%N}")" || exit
+else
+  echo "Unsupported shell"
+  exit 1
+fi
+
 
 git pull origin main;
 
@@ -12,7 +25,7 @@ function doIt() {
 		--exclude "README.md" \
 		--exclude "LICENSE-MIT.txt" \
 		-avh --no-perms . ~;
-	source ~/.bash_profile;
+	source ~/.zshrc;
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
