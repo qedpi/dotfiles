@@ -1,6 +1,17 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Install command-line tools using Homebrew.
+
+# Check if Homebrew is installed
+if ! command -v brew >/dev/null 2>&1; then
+  echo "Homebrew not found. Installing Homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  # Ensure Homebrew is added to PATH for this session
+  export PATH="/usr/local/bin:/opt/homebrew/bin:$PATH"
+else
+  echo "Homebrew is already installed."
+fi
+
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -22,15 +33,18 @@ brew install moreutils
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
 brew install gnu-sed --with-default-names
-# Install a modern version of Bash.
-brew install bash
-brew install bash-completion2
+s
+brew install zsh
 
-# Switch to using brew-installed bash as default shell
-if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
-  echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells;
-  chsh -s "${BREW_PREFIX}/bin/bash";
-fi;
+## Install a modern version of Bash.
+#brew install bash
+#brew install bash-completion2
+#
+## Switch to using brew-installed bash as default shell
+#if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
+#  echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells;
+#  chsh -s "${BREW_PREFIX}/bin/bash";
+#fi;
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
@@ -82,7 +96,8 @@ brew install xz
 brew install ack
 #brew install exiv2
 brew install git
-brew install git-lfs
+brew install git-lfs  # Git Large File Storage
+brew install git-gui  # gitk for pretty logs
 brew install gs
 brew install imagemagick --with-webp
 brew install lua
@@ -96,6 +111,83 @@ brew install ssh-copy-id
 brew install tree
 brew install vbindiff
 brew install zopfli
+
+# qedpi apps
+brew install --cask google-chrome
+brew install --cask google-drive
+brew install --cask slack
+brew install --cask zoom
+brew install --cask linear-linear
+brew install --cask jetbrains-toolbox
+brew install --cask github
+#brew install --cask figma
+#brew install --cask 1password
+brew install --cask anki
+# qedpi productivity
+brew install --cask karabiner-elements
+
+# font design
+#brew install fontforge
+
+brew tap espanso/espanso && brew install espanso  # text expander
+
+# dev
+brew install jq  # command-line JSON processor
+#brew install cookiecutter  # A command-line utility that creates projects from cookiecutters (project templates).
+#docker
+#docker-compose
+brew install --cask orbstack  # docker desktop light
+#fd # @todo consider vs gnu find
+#ffmpeg
+#gh # GitHub CLI
+ghostscript  # PostScript and PDF interpreter
+#icu4c@75
+## python
+brew install poetry  # Python dependency management and packaging tool
+brew install uv  # fast Python package installer and resolver in Rust
+#brew install virtualenv  # Python virtual environment builder
+#brew install pyenv  # Python version management
+#brew install pipx  # install and run Python applications in isolated environments
+brew install python@3.12  # more support than 3.13
+
+# JS/TS
+brew install nvm # Node Version Manager, includes npm
+nvm install node  # latest node
+#nvm --version
+#node --version
+#npm --version
+brew install pnpm
+#pnpm --version
+#brew install oven-sh/bun/bun  # modern build tool
+#brew install yarn
+#brew install vercel-cli	# Vercel CLI
+
+# other langs
+brew install rust
+
+# AI
+brew install ollama  # local llm server
+
+# tools
+brew install --cask jetbrains-toolbox	 # JetBrains IDEs
+#brew install tesseract  # OCR
+#brew install biome # manage & deploy Rust WebAssembly packages
+#brew install libmagic	# File type identification library
+#brew install withgraphite/tap/graphite  # stacked commits
+
+# infra
+#brew install redis
+#brew install supabase/tap/supabase
+#brew install awscli
+#brew tap heroku/brew && brew install heroku
+
+
+#portaudio  # cross-platform library for audio I/O
+
+#sevenzip  # file archiver with a high compression ratio, alt: Keka
+#tcl-tk  # Tool Command Language and Toolkit
+#wimlib  # Windows Imaging Format (WIM) library
+
 
 # Remove outdated versions from the cellar.
 brew cleanup
