@@ -117,19 +117,21 @@ brew install --cask google-chrome
 brew install --cask google-drive
 brew install --cask slack
 brew install --cask zoom
-brew install --cask linear-linear
+brew install --cask linear-linear  # project management
 brew install --cask jetbrains-toolbox
 brew install --cask github
 #brew install --cask figma
 #brew install --cask 1password
 brew install --cask anki
+brew install --cask flux  # screen color adjustment
 # qedpi productivity
-brew install --cask karabiner-elements
+brew tap espanso/espanso && brew install espanso  # text expander
+brew install --cask karabiner-elements  # keyboard remapping
+brew install --cask talon  # voice coding
 
 # font design
 #brew install fontforge
 
-brew tap espanso/espanso && brew install espanso  # text expander
 
 # dev
 brew install jq  # command-line JSON processor
