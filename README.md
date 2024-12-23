@@ -1,4 +1,5 @@
-# Mathias’s dotfiles
+# QEDPIs dotfiles
+forked from mathiasbynens
 
 ![Screenshot of my shell prompt](https://i.imgur.com/EkEtphC.png)
 
@@ -7,7 +8,6 @@
 **Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
 ### Using Git and the bootstrap script
-
 You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
 ```bash
@@ -108,6 +108,12 @@ Some of the functionality of these dotfiles depends on formulae installed by `br
 - `.tmux.conf`
 - `.osx` (`.macos` preferred)
 
+### SCRIPTS
+TODO work into `bootstrap.sh`
+- `unlink_mac_shortcuts.sh`
+  - removes macOS shortcuts like `⌘+Sh+A` for manual
+  - `chmod +x unlink_mac_shortcuts.sh && sudo ./unlink_mac_shortcuts.sh`
+
 ## Feedback
 
 Suggestions/improvements
@@ -116,11 +122,12 @@ Suggestions/improvements
 ## Author
 
 | [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
-|---|
-| [Mathias Bynens](https://mathiasbynens.be/) |
+|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| [qedpi](https://mathiasbynens.be/)                                                                                                              |
 
 ## Thanks to…
 
+* [mathiasbynens](https://mathiasbynens.be/) and his [dotfiles repository]
 * @ptb and [his _macOS Setup_ repository](https://github.com/ptb/mac-setup)
 * [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
 * [Cătălin Mariș](https://github.com/alrra) and his [dotfiles repository](https://github.com/alrra/dotfiles)
