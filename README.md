@@ -110,6 +110,7 @@ Some of the functionality of these dotfiles depends on formulae installed by `br
 
 ### SCRIPTS
 TODO work into `bootstrap.sh`
+need to restart mac after running
 - `unlink_mac_shortcuts.sh`
   - removes macOS shortcuts like `⌘+Sh+A` for manual
   - `chmod +x unlink_mac_shortcuts.sh && sudo ./unlink_mac_shortcuts.sh`
