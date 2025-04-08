@@ -2,7 +2,8 @@
 
 # Install command-line tools using Homebrew.
 
-# Check if Homebrew is installed
+######## homebrew ##########
+# Check if installed
 if ! command -v brew >/dev/null 2>&1; then
   echo "Homebrew not found. Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -12,7 +13,6 @@ else
   echo "Homebrew is already installed."
 fi
 
-
 # Make sure we’re using the latest Homebrew.
 brew update
 
@@ -21,6 +21,7 @@ brew upgrade
 
 # Save Homebrew’s installed location.
 BREW_PREFIX=$(brew --prefix)
+######## ########
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
@@ -124,6 +125,7 @@ brew install --cask github
 #brew install --cask 1password
 brew install --cask anki
 brew install --cask flux  # screen color adjustment
+
 # qedpi productivity
 brew tap espanso/espanso && brew install espanso  # text expander
 brew install --cask karabiner-elements  # keyboard remapping
@@ -132,6 +134,14 @@ brew install --cask talon  # voice coding
 # font design
 #brew install fontforge
 
+# automations
+brew install mas  # Mac App Store CLI
+
+# TODO move elsewhere, also need to sign in to app store beforehand
+if command -v mas >/dev/null 2>&1; then
+  mas install 497799835  # Xcode
+  # open "macappstore://itunes.apple.com/app/id497799835"  # use this if mas fails
+fi
 
 # dev
 brew install jq  # command-line JSON processor
