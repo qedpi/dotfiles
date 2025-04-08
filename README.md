@@ -1,4 +1,9 @@
 # QEDPIs dotfiles
+
+POSIX-compliant `bootstrap.sh` as a portable entry point that
+loads shell-specific setups
+
+## credits
 forked from mathiasbynens
 
 ![Screenshot of my shell prompt](https://i.imgur.com/EkEtphC.png)
